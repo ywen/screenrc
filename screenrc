@@ -1,0 +1,21 @@
+defscrollback 5000
+
+# 和256色相关的配置
+term xterm-256color
+attrcolor b ".I"
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
+# 断线的时候自动detach
+autodetach on
+startup_message off
+
+# make the shell in every window a login shell
+# 意思是会去执行~/.bash_profile
+shell -$SHELL
+
+termcapinfo xterm* ti@:te@
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo rxvt 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+caption always "%{gw} $LOGNAME@%H %{kw}| %h   %=%{rw}%t %{kw}|%{bw}%C:%s %a%{-}"
+hardstatus alwayslastline "%{wk} %-Lw%{= rw}%50>%{wr}%n%f* %t %{wk}%+Lw %{wk}%50> %=%{wk}%l %{wb}| %Y-%m-%d%{0}"
